@@ -1,0 +1,45 @@
+EDIT 'I2C_ADAPTER_LCD' SYMBOL;
+GRID MIL;
+CHANGE LAYER 94;
+
+# Rysowanie prostokąta jako symbolu
+WIRE '0.1' (0 0) (0 400) (200 400) (200 0) (0 0);
+
+# Zmiana warstwy dla pinów
+CHANGE LAYER 95;
+
+# Przywrócenie ostatniej siatki i dopasowanie okna
+GRID LAST;
+WINDOW FIT;
+EDIT;
+
+# Tworzenie obudowy (footprint) dla adaptera
+EDIT 'I2C_ADAPTER_LCD' PACKAGE;
+GRID MIL;
+CHANGE LAYER 94;
+
+# Pady THT dla złącza 4-pinowego (wyprowadzenia przelotowe)
+PAD '50 50' (0 100);    # Pin GND
+PAD '50 50' (0 200);    # Pin VCC
+PAD '50 50' (0 300);    # Pin SDA
+PAD '50 50' (0 400);    # Pin SCL
+
+# Dodanie linii opisujących wymiary adaptera
+WIRE '0.01' (-820 -200) (-820 2000) (820 2000) (820 -200) (-820 -200);
+GRID LAST;
+WINDOW FIT;
+EDIT;
+
+# Tworzenie urządzenia (device)
+EDIT 'I2C_ADAPTER_LCD' DEVICE;
+ADD 'I2C_ADAPTER_LCD';
+
+# Przypisanie obudowy do wyprowadzeń symbolu
+CONNECT 'GND' 'PAD1';   # Przypisanie pinu GND z symbolu do PAD1 w obudowie
+CONNECT 'VCC' 'PAD2';   # Przypisanie pinu VCC z symbolu do PAD2 w obudowie
+CONNECT 'SDA' 'PAD3';   # Przypisanie pinu SDA z symbolu do PAD3 w obudowie
+CONNECT 'SCL' 'PAD4';   # Przypisanie pinu SCL z symbolu do PAD4 w obudowie
+
+# Przypisanie obudowy do urządzenia
+PACKAGE 'I2C_ADAPTER_LCD';
+EDIT;
