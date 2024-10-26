@@ -212,19 +212,21 @@ void loop(){
 #include "NTPClient.h"
 
 // Replace with your network credentials
-const char* ssid = "********";
-const char* password = "********";
+const char* ssid = "FunBox2-E884"; //"********";
+const char* password = "1621D95F"; //"********";
 
 #define DHTPIN 0     // Digital pin connected to the DHT sensor (D3)
 #define LEDPIN 2     // Digital pin connected to the LED (D4)
 
 // Uncomment the type of sensor in use:
-#define DHTTYPE    DHT22     // DHT 22 (AM2302)
+//#define DHTTYPE    DHT22     // DHT 22 (AM2302)
+
+#define DHTTYPE    DHT11     // DHT 11
 
 const long utcOffsetInSeconds = 7200;
 
 // Initialize the LCD display with the I2C address 0x27
-LiquidCrystal_I2C lcd(0x27, 16, 2);  
+LiquidCrystal_I2C lcd(0x27, 20, 4);  
 
 // DHT sensor instance
 DHT dht(DHTPIN, DHTTYPE);
@@ -319,6 +321,8 @@ void setup() {
   lcd.init();
   lcd.backlight();
   lcd.home();
+  lcd.setCursor(0,0);
+  lcd.print("ESP8266 DHT Server");
 
   // Connect to Wi-Fi
   WiFi.begin(ssid, password);
@@ -362,7 +366,7 @@ void loop() {
     Serial.println("Reconnected!");
   }
 
-  // Update time on the LCD
+    // Update time on the LCD
   timeClient.update();
   lcd.setCursor(0, 1);
   lcd.print(daysOfTheWeek[timeClient.getDay()]);
@@ -385,12 +389,15 @@ void loop() {
       h = newH;
       
       // Display data on LCD
-      lcd.clear();
-      lcd.setCursor(0, 0);
+      //lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("ESP8266 DHT Server");
+      lcd.setCursor(0, 2);
       lcd.print("Temp: ");
       lcd.print(t);
       lcd.write(223); // Degree symbol
       lcd.print("C ");
+      lcd.setCursor(0, 3);
       lcd.print("Hum: ");
       lcd.print(h);
       lcd.print("%");
