@@ -18,7 +18,10 @@ ESP8266 acts as a web server providing the readings from the DHT sensor (e.g., D
 - LCD HD44780 16x2 or 20x4
 - I2C apapter for LCD 
 - Jumper Wires
-- Breadboard (optional)
+- Breadboard
+- LED
+- 4.7 kΩ Resistor
+- 220 kΩ Resistor
 <div align="left">
     <img src="img/bare_project.jpg" alt="Application Screenshot 2" width="600" style="display: inline-block;"/>
 </div>
