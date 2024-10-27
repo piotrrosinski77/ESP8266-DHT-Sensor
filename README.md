@@ -8,7 +8,7 @@ This project enables wireless monitoring of temperature and humidity using a DHT
 
 ## Web server (via IP Address)
 ESP8266 acts as a web server providing the readings from the DHT sensor (e.g., DHT11 or DHT22).
-<div align="center">
+<div align="left">
     <img src="img/page.png" alt="Application Screenshot 1" width="600" style="display: inline-block;"/>
 </div>
 
@@ -19,6 +19,6 @@ ESP8266 acts as a web server providing the readings from the DHT sensor (e.g., D
 - I2C apapter for LCD 
 - Jumper Wires
 - Breadboard (optional)
-<div align="center">
-    <img src="img/bare_project.jpg" alt="Application Screenshot 2" width="335" style="display: inline-block;"/>
+<div align="left">
+    <img src="img/bare_project.jpg" alt="Application Screenshot 2" width="600" style="display: inline-block;"/>
 </div>
